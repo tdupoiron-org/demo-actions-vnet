@@ -1,0 +1,41 @@
+name: Database Discovery
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  discover:
+    runs-on: tdupoiron-vnet-runner
+
+    steps:
+      - name: Install MySQL Client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mysql-client
+
+      - name: List Databases
+        run: |
+          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
+                --user=mysqladmin \
+                --password='MySecurePassword123' \
+                -e "SHOW DATABASES;"
+
+      - name: List Tables in flexibleserverdb
+        run: |
+          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
+                --user=mysqladmin \
+                --password='MySecurePassword123' \
+                flexibleserverdb \
+                -e "SHOW TABLES;"
+
+      - name: Show Table Schemas
+        run: |
+          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
+                --user=mysqladmin \
+                --password='MySecurePassword123' \
+                flexibleserverdb \
+                -e "SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE 
+                    FROM INFORMATION_SCHEMA.COLUMNS 
+                    WHERE TABLE_SCHEMA = 'flexibleserverdb' 
+                    ORDER BY TABLE_NAME, ORDINAL_POSITION;"
