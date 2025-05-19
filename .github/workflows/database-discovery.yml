@@ -4,6 +4,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  MYSQL_HOST: tdupoiron-mysql.mysql.database.azure.com
+  MYSQL_DATABASE: flexibleserverdb
+  MYSQL_USER: mysqladmin
+
 jobs:
   discover:
     runs-on: tdupoiron-vnet-runner
@@ -16,26 +21,26 @@ jobs:
 
       - name: List Databases
         run: |
-          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
-                --user=mysqladmin \
-                --password='MySecurePassword123' \
+          mysql --host=${{ env.MYSQL_HOST }} \
+                --user=${{ env.MYSQL_USER }} \
+                --password=${{ secrets.MYSQL_PASSWORD }} \
                 -e "SHOW DATABASES;"
 
       - name: List Tables in flexibleserverdb
         run: |
-          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
-                --user=mysqladmin \
-                --password='MySecurePassword123' \
-                flexibleserverdb \
+          mysql --host=${{ env.MYSQL_HOST }} \
+                --user=${{ env.MYSQL_USER }} \
+                --password=${{ secrets.MYSQL_PASSWORD }} \
+                ${{ env.MYSQL_DATABASE }} \
                 -e "SHOW TABLES;"
 
       - name: Show Table Schemas
         run: |
-          mysql --host=tdupoiron-mysql.mysql.database.azure.com \
-                --user=mysqladmin \
-                --password='MySecurePassword123' \
-                flexibleserverdb \
+          mysql --host=${{ env.MYSQL_HOST }} \
+                --user=${{ env.MYSQL_USER }} \
+                --password=${{ secrets.MYSQL_PASSWORD }} \
+                ${{ env.MYSQL_DATABASE }} \
                 -e "SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE 
                     FROM INFORMATION_SCHEMA.COLUMNS 
-                    WHERE TABLE_SCHEMA = 'flexibleserverdb' 
+                    WHERE TABLE_SCHEMA = '${{ env.MYSQL_DATABASE }}' 
                     ORDER BY TABLE_NAME, ORDINAL_POSITION;"
