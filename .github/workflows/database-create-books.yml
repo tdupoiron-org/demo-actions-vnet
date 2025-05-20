@@ -18,13 +18,13 @@ on:
         type: number
 
 env:
-  MYSQL_HOST: tdupoiron-mysql.mysql.database.azure.com
+  MYSQL_HOST: tdupoiron-mysql-2.mysql.database.azure.com
   MYSQL_DATABASE: flexibleserverdb
   MYSQL_USER: mysqladmin
 
 jobs:
   create-table:
-    runs-on: tdupoiron-vnet-runner
+    runs-on: tdupoiron-vnet-runner-2
 
     steps:
       - name: Install MySQL Client
