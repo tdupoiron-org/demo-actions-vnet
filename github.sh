@@ -16,11 +16,11 @@ set -e
 #set environment
 export AZURE_LOCATION=francecentral
 export SUBSCRIPTION_ID=e4bf7af2-8190-4628-90e4-1bc20135d14c
-export RESOURCE_GROUP_NAME=tdupoiron-actions-demovnet-2
-export VNET_NAME=tdupoiron-actions-vnet-2
-export SUBNET_NAME=tdupoiron-actions-subnet-2
-export NSG_NAME=tdupoiron-actions-nsg-2
-export NETWORK_SETTINGS_RESOURCE_NAME=tdupoiron-network-2
+export RESOURCE_GROUP_NAME=tdupoiron-actions-demovnet-cap
+export VNET_NAME=tdupoiron-actions-vnet-cap
+export SUBNET_NAME=tdupoiron-actions-subnet-cap
+export NSG_NAME=tdupoiron-actions-nsg-cap
+export NETWORK_SETTINGS_RESOURCE_NAME=tdupoiron-network-cap
 export DATABASE_ID=8635
 export API_VERSION=2024-04-02
 

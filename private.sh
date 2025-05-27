@@ -13,10 +13,10 @@ set -e
 #set environment
 export AZURE_LOCATION=francecentral
 export SUBSCRIPTION_ID=e4bf7af2-8190-4628-90e4-1bc20135d14c
-export RESOURCE_GROUP_NAME=tdupoiron-actions-demovnet-2
-export VNET_NAME=tdupoiron-actions-vnet-2
-export SUBNET_NAME=tdupoiron-mysql-subnet-2
-export MYSQL_RESOURCE_NAME=tdupoiron-mysql-2
+export RESOURCE_GROUP_NAME=tdupoiron-actions-demovnet-cap
+export VNET_NAME=tdupoiron-actions-vnet-cap
+export SUBNET_NAME=tdupoiron-mysql-subnet-cap
+export MYSQL_RESOURCE_NAME=tdupoiron-mysql-cap
 
 # These are the default values. You can adjust your address and subnet prefixes.
 export ADDRESS_PREFIX=10.0.0.0/16

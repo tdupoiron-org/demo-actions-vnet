@@ -24,7 +24,7 @@ env:
 
 jobs:
   create-table:
-    runs-on: tdupoiron-vnet-runner
+    runs-on: tdupoiron-demo-vnet-runner-cap
 
     steps:
       - name: Install MySQL Client
