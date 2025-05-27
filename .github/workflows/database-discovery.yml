@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  MYSQL_HOST: tdupoiron-mysql.mysql.database.azure.com
+  MYSQL_HOST: tdupoiron-mysql-cap.mysql.database.azure.com
   MYSQL_DATABASE: flexibleserverdb
   MYSQL_USER: mysqladmin
 
